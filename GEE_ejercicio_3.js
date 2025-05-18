@@ -166,7 +166,7 @@ print('Valores nuevos:', nuevosValores);var imagenOriginal = clasificacionKMeans
 // ----------------------------------------------------------------------------------
 // Sección 9: EXPORTACIÓN (Opcional)
 // ----------------------------------------------------------------------------------
-/*
+/* //Eliminar /* para eliminar comentario del bloque de exportación
 Export.image.toDrive({
   image: imagenReclasificada, // La imagen con clústeres
   description: 'reclasificacion_kmeans_mi_area',
@@ -177,7 +177,7 @@ Export.image.toDrive({
   maxPixels: 1e13,
   fileFormat: 'GeoTIFF'
 });
-*/
+*/ //Eliminar /* para eliminar comentario del bloque de exportación
 
 print('--- PROCESO DE CLASIFICACIÓN K-MEANS COMPLETADO ---');
 print('INSTRUCCIONES IMPORTANTES:');
