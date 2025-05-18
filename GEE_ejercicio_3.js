@@ -33,7 +33,7 @@ var PORCENTAJE_NUBES_MAX = 10;
 var BANDAS_CLASIFICACION = ['B2', 'B3', 'B4', 'B8', 'B11', 'B12']; // Bandas Sentinel-2
 var ESCALA_MUESTREO_ENTRENAMIENTO_KMEANS = 30; // Escala para muestrear píxeles para entrenar K-Means
 var NUMERO_PIXELES_ENTRENAMIENTO_KMEANS = 5000; // Número de píxeles para entrenar K-Means
-var NUMERO_DE_CLUSTERS = 5; // Número de clústeres que K-Means intentará identificar. ¡AJUSTA ESTO!
+var NUMERO_DE_CLUSTERS = 5; // Número de clústeres que K-Means intentará identificar.
 
 // ----------------------------------------------------------------------------------
 // Sección 2: PREPARACIÓN DE ÁREAS DE REFERENCIA (Para visualización e interpretación)
