@@ -168,8 +168,8 @@ print('Valores nuevos:', nuevosValores);var imagenOriginal = clasificacionKMeans
 // ----------------------------------------------------------------------------------
 /*
 Export.image.toDrive({
-  image: clasificacionKMeans, // La imagen con clústeres
-  description: 'clasificacion_kmeans_mi_area',
+  image: imagenReclasificada, // La imagen con clústeres
+  description: 'reclasificacion_kmeans_mi_area',
   folder: 'GEE_Exports',
   fileNamePrefix: 'clasificacion_KMeans_mi_area',
   region: regionDeInteres,
