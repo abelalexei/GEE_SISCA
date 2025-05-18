@@ -106,6 +106,7 @@ var clasificacionKMeans = imagenRecortada.cluster(clusterer);
 // Define una paleta de colores para los clústeres.
 // El número de colores debe coincidir con NUMERO_DE_CLUSTERS.
 // Deberás interpretar qué representa cada clúster (color).
+//https://colorbrewer2.org/ es útil para seleccionar colores
 var paletaColoresClusters = [
   'FF0000', // Clúster 0 (Rojo)
   '00FF00', // Clúster 1 (Verde)
