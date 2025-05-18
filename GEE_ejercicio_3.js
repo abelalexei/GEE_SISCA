@@ -139,8 +139,8 @@ Map.addLayer(coleccionReferencia.style(estiloReferencia), {}, 'Áreas de Referen
 var imagenOriginal = clasificacionKMeans;
 // 2. Definir los valores a reclasificar y los nuevos valores
 // Lista de valores originales que queremos cambiar
-var valoresOriginales = [1, 2, 3, 4, 5]; // Los valores que existen en tu imagenOriginal
-var nuevosValores = [6, 7, 8, 9, 10];
+var valoresOriginales = [0, 1, 2, 3, 4]; // Los valores que existen en tu imagenOriginal
+var nuevosValores = [0, 1, 2, 3, 4];
 // 3. Aplicar la función remap()
 // La función remap toma tres argumentos:
 // - La lista de valores 'desde' (valoresOriginales)
@@ -154,10 +154,10 @@ var imagenReclasificada = imagenOriginal.remap({
 });
 // Parámetros de visualización para la imagen reclasificada
 var visParamsReclasificada = {
-  min: 6, // Mínimo de tus nuevosValores
-  max: 10, // Máximo de tus nuevosValores
-  palette: ['#FFC0CB', '#ADD8E6', '#90EE90', '#A9A9A9', '#8856a7'] 
-  // Rosa, Azul claro, Verde claro, Gris oscuro, morado (para 6, 7, 8, 9, 10) https://colorbrewer2.org/
+  min: 0, // Mínimo de tus nuevosValores
+  max: 4, // Máximo de tus nuevosValores
+  palette: ['#FFC0CB', '#ADD8E6', '#90EE90', '#A9A9A9'] 
+  // Rosa, Azul claro, Verde claro, Gris oscuro, (para 0, 1, 2, 3, 4) https://colorbrewer2.org/
 };
 Map.addLayer(imagenReclasificada, visParamsReclasificada, 'Imagen Reclasificada');
 print('--- RECLASIFICACIÓN COMPLETADA ---');
