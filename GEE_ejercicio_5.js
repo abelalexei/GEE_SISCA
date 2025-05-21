@@ -69,7 +69,7 @@ Map.addLayer(pendiente, {min: 0, max: 30, palette: ['green', 'yellow', 'red']}, 
 // =================================
 // Umbral de pendiente para definir "áreas planas" (planicies).
 // Ajusta este valor según las características de tu área de estudio.
-var umbralPendiente = 10; // Grados. Áreas con pendiente < 5 grados se consideran planas.
+var umbralPendiente = 5; // Grados. Áreas con pendiente < 5 grados se consideran planas.
 
 // Umbral de retrodispersión SAR para identificar posible agua/humedad.
 // Valores más bajos de retrodispersión (más oscuros en la imagen VV) suelen indicar agua.
