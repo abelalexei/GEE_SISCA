@@ -1,12 +1,12 @@
 // --- PASO 0: Definir la Región de Interés (Opcional, para visualización y ejemplo) ---
 
-Map.centerObject(regionDeInteres, 10); // Centra el mapa en la región de interés
+Map.centerObject(roi, 10); // Centra el mapa en la región de interés
 
 // --- PASO 1: Cargar o Definir las Capas de Amenaza ---
 
 // Muestra las capas originales clasificadas (0-4)
-Map.addLayer(inundacion_original.clip(regionDeInteres), {min: 0, max: 4, palette: ['#ffffff', '#ffffcc', '#fed976', '#fd8d3c', '#e31a1c']}, 'Amenaza Inundación Original (0-4)');
-Map.addLayer(deslizamientos_original.clip(regionDeInteres), {min: 0, max: 4, palette: ['#ffffff', '#ccffcc', '#78c679', '#31a354', '#006837']}, 'Amenaza Deslizamientos Original (0-4)');
+Map.addLayer(inundacion_original.clip(roi), {min: 0, max: 4, palette: ['#ffffff', '#ffffcc', '#fed976', '#fd8d3c', '#e31a1c']}, 'Amenaza Inundación Original (0-4)');
+Map.addLayer(deslizamientos_original.clip(roi), {min: 0, max: 4, palette: ['#ffffff', '#ccffcc', '#78c679', '#31a354', '#006837']}, 'Amenaza Deslizamientos Original (0-4)');
 
 // --- PASO 2: Normalizar las Capas de Amenaza a una escala de 0 a 1 ---
 // Los valores de entrada son 1 (Baja), 2 (Moderada), 3 (Alta), 4 (Muy alta).
@@ -18,8 +18,8 @@ var inundacion_normalizada = inundacion_original.divide(4.0).rename('inundacion_
 var deslizamientos_normalizada = deslizamientos_original.divide(4.0).rename('deslizamientos_norm'); // Divide por el valor máximo (4)
 
 // Muestra las capas normalizadas (0-1)
-Map.addLayer(inundacion_normalizada.clip(regionDeInteres), {min: 0, max: 1, palette: ['#f7fcf0', '#ccebc5', '#7bccc4', '#43a2ca', '#0868ac']}, 'Amenaza Inundación Normalizada (0-1)');
-Map.addLayer(deslizamientos_normalizada.clip(regionDeInteres), {min: 0, max: 1, palette: ['#f7fcf0', '#ccebc5', '#7bccc4', '#43a2ca', '#0868ac']}, 'Amenaza Deslizamientos Normalizada (0-1)');
+Map.addLayer(inundacion_normalizada.clip(roi), {min: 0, max: 1, palette: ['#f7fcf0', '#ccebc5', '#7bccc4', '#43a2ca', '#0868ac']}, 'Amenaza Inundación Normalizada (0-1)');
+Map.addLayer(deslizamientos_normalizada.clip(roi), {min: 0, max: 1, palette: ['#f7fcf0', '#ccebc5', '#7bccc4', '#43a2ca', '#0868ac']}, 'Amenaza Deslizamientos Normalizada (0-1)');
 
 // --- PASO 3: Definir Pesos para cada Amenaza ---
 // La suma de los pesos debe ser 1.0
@@ -47,7 +47,7 @@ var paleta_multiamenaza = ['#440154', '#414487', '#2a788e', '#22a884', '#7ad151'
 
 
 Map.addLayer(
-  indice_multiamenaza.clip(regionDeInteres),
+  indice_multiamenaza.clip(roi),
   {min: 0, max: 1, palette: paleta_multiamenaza},
   'Índice de Multiamenaza (0-1)'
 );
