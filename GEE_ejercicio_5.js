@@ -4,17 +4,7 @@
 // =================================
 // 1. Definición del Área de Interés (AOI)
 // =================================
-// REEMPLAZA esto con las coordenadas de tu polígono.
-// Ejemplo de cómo definir un polígono:
-// var aoi = ee.Geometry.Polygon([
-//   [[-70.0, -15.0], [-70.0, -15.5], [-70.5, -15.5], [-70.5, -15.0], [-70.0, -15.0]]
-// ]);
-//
-// O dibuja un polígono directamente en el mapa y luego impórtalo:
-// En la consola de GEE, después de dibujar, aparecerá una variable 'geometry'.
-// Puedes renombrarla a 'aoi' o asignar: var aoi = geometry;
-
-// Por ahora, se deja un polígono de ejemplo. Asegúrate de reemplazarlo.
+// Dibujar polígono de interés, no es necesario renombrarlo.
 var aoi = geometry
 
 Map.centerObject(aoi, 9);
