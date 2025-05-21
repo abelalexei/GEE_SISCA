@@ -154,6 +154,6 @@ Map.addLayer(areasVulnerablesOptB, {palette: 'FFA500'}, 'Áreas Vulnerables (Pla
 //   maxPixels: 1e10
 // });
 
-print("Script finalizado. Revisa las capas en el mapa.");
-print("Recuerda ajustar los umbrales de pendiente y SAR según tu área de estudio.");
-print("Considera que si no hay imágenes SAR para los periodos definidos, las capas de 'Posible Agua' y 'Áreas Vulnerables' podrían estar vacías.");
+print("Script finalizado. Revise las capas en el mapa.");
+print("Recuerde ajustar los umbrales de pendiente y SAR según su área de estudio.");
+print("Considere que si no hay imágenes SAR para los periodos definidos, las capas de 'Posible Agua' y 'Áreas Vulnerables' podrían estar vacías.");
