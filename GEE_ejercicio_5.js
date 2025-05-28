@@ -2,13 +2,13 @@
 // utilizando imágenes SAR y datos de elevación (pendiente).
 
 // =================================
-// 1. Definición del Área de Interés (AOI)
+// 1. Definición de la Región de Interés (ROI)
 // =================================
 // Dibujar polígono de interés, no es necesario renombrarlo.
-var aoi = geometry
+var roi = geometry
 
-Map.centerObject(aoi, 9);
-Map.addLayer(aoi, {color: 'FF0000'}, 'Área de Interés (AOI)', false);
+Map.centerObject(roi, 9);
+Map.addLayer(roi, {color: 'FF0000'}, 'Área de Interés (AOI)', false);
 
 // =================================
 // 2. Definición de los Periodos de Tiempo
@@ -28,9 +28,9 @@ var fechaFinPeriodo2 = '2020-06-30';
 // Filtraremos por polarización VV, que es sensible al agua.
 // También puedes usar VH o una combinación.
 
-function cargarYProcesarS1(fechaInicio, fechaFin, aoi) {
+function cargarYProcesarS1(fechaInicio, fechaFin, roi) {
   var coleccionS1 = ee.ImageCollection('COPERNICUS/S1_GRD')
-    .filterBounds(aoi)
+    .filterBounds(roi)
     .filterDate(ee.Date(fechaInicio), ee.Date(fechaFin))
     // Filtra por los modos de adquisición más comunes
     .filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VV'))
@@ -41,16 +41,16 @@ function cargarYProcesarS1(fechaInicio, fechaFin, aoi) {
   // Manejo de colección vacía para evitar error en .mean()
   var procesado = ee.Algorithms.If(
     coleccionS1.size().gt(0),
-    coleccionS1.mean().clip(aoi), // Procesa si hay imágenes
-    ee.Image().rename('VV').clip(aoi) // Devuelve una imagen vacía con la banda esperada si no hay imágenes
+    coleccionS1.mean().clip(roi), // Procesa si hay imágenes
+    ee.Image().rename('VV').clip(roi) // Devuelve una imagen vacía con la banda esperada si no hay imágenes
                                       // Esto evita errores, pero las capas SAR podrían estar vacías.
                                       // Considera añadir una notificación o manejo de error más robusto si esto ocurre.
   );
   return ee.Image(procesado);
 }
 
-var s1Periodo1 = cargarYProcesarS1(fechaInicioPeriodo1, fechaFinPeriodo1, aoi);
-var s1Periodo2 = cargarYProcesarS1(fechaInicioPeriodo2, fechaFinPeriodo2, aoi);
+var s1Periodo1 = cargarYProcesarS1(fechaInicioPeriodo1, fechaFinPeriodo1, roi);
+var s1Periodo2 = cargarYProcesarS1(fechaInicioPeriodo2, fechaFinPeriodo2, roi);
 
 Map.addLayer(s1Periodo1, {min: -25, max: 0}, 'SAR Periodo 1 (VV)', false);
 Map.addLayer(s1Periodo2, {min: -25, max: 0}, 'SAR Periodo 2 (VV)', false);
@@ -60,7 +60,7 @@ Map.addLayer(s1Periodo2, {min: -25, max: 0}, 'SAR Periodo 2 (VV)', false);
 // =================================
 // Cargamos un Modelo Digital de Elevación (DEM), por ejemplo SRTM.
 var dem = ee.Image('USGS/SRTMGL1_003');
-var pendiente = ee.Terrain.slope(dem).clip(aoi); // Pendiente en grados
+var pendiente = ee.Terrain.slope(dem).clip(roi); // Pendiente en grados
 
 Map.addLayer(pendiente, {min: 0, max: 30, palette: ['green', 'yellow', 'red']}, 'Pendiente del Terreno', false);
 
@@ -142,7 +142,7 @@ Map.addLayer(areasVulnerablesOptB, {palette: 'FFA500'}, 'Áreas Vulnerables (Pla
 //   image: areasVulnerablesOptA,
 //   description: 'areas_vulnerables_inundacion_OptA',
 //   scale: 30, // Escala en metros, ajusta según S1 y DEM
-//   region: aoi,
+//   region: roi,
 //   maxPixels: 1e10
 // });
 
@@ -150,7 +150,7 @@ Map.addLayer(areasVulnerablesOptB, {palette: 'FFA500'}, 'Áreas Vulnerables (Pla
 //   image: areasVulnerablesOptB,
 //   description: 'areas_vulnerables_inundacion_OptB',
 //   scale: 30,
-//   region: aoi,
+//   region: roi,
 //   maxPixels: 1e10
 // });
 
