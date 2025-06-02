@@ -1,3 +1,6 @@
+//Script elaborado por Abner Jiménez - Coordinador Técnico Regional
+//Coordinador Técnico Regional - Proyecto Paisajes Forestales y Comercio Sostenible REDD+Landscape III
+//GIZ - Deutsche Gesellschaft für Internationale Zusammenarbeit GmbH
 // --- INICIO DEL SCRIPT ---
 // alert('El proceso iniciará cuando haga clic en ACEPTAR. Una vez iniciado, puede demorar hasta que se muestre el resultado...');
  
