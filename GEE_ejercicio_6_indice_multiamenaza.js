@@ -1,4 +1,4 @@
-//Script elaborado por Abner Jiménez - Coordinador Técnico Regional
+//Script elaborado por Abner Jiménez
 //Coordinador Técnico Regional - Proyecto Paisajes Forestales y Comercio Sostenible REDD+Landscape III
 //GIZ - Deutsche Gesellschaft für Internationale Zusammenarbeit GmbH
 // Define tu región de interés (roi)
