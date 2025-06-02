@@ -1,3 +1,6 @@
+//Script elaborado por Abner Jiménez - Coordinador Técnico Regional
+//Coordinador Técnico Regional - Proyecto Paisajes Forestales y Comercio Sostenible REDD+Landscape III
+//GIZ - Deutsche Gesellschaft für Internationale Zusammenarbeit GmbH
 // =====================================================================================
 // Script para generar límites de poblados (método RASTER)
 // =====================================================================================
